@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b1srpwqlyvyoc"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Lives" type="Label" parent="."]
+offset_left = 1.0
+offset_top = 8.0
+offset_right = 144.0
+offset_bottom = 31.0
+text = "Lives Remaining: 3"
+
+[node name="PickupCount" type="Label" parent="."]
+offset_left = 9.0
+offset_top = 40.0
+offset_right = 138.0
+offset_bottom = 63.0
+text = "DNA Collected: 0"

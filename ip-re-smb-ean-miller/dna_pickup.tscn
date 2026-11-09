@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckkonl6mplbbx"]
+
+[ext_resource type="Script" path="res://dna_pickup.gd" id="1_ajv7n"]
+[ext_resource type="Texture2D" uid="uid://cygab30pcopfa" path="res://DNA pickup.png" id="1_rrmux"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvch3"]
+size = Vector2(63, 58)
+
+[node name="DNAPickup" type="Area2D"]
+script = ExtResource("1_ajv7n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rrmux")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_fvch3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

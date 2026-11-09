@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://c22wpd6lsfuir"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_05hfc"]
+[ext_resource type="Texture2D" uid="uid://d3v2joar743hn" path="res://LizardmanSprite.png" id="2_0y1kr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbxvh"]
+atlas = ExtResource("2_0y1kr")
+region = Rect2(0, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqrdc"]
+atlas = ExtResource("2_0y1kr")
+region = Rect2(32, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tse4"]
+atlas = ExtResource("2_0y1kr")
+region = Rect2(64, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q3q6"]
+atlas = ExtResource("2_0y1kr")
+region = Rect2(96, 48, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7pe23"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbxvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqrdc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tse4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6q3q6")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_an6ph"]
+size = Vector2(29, 48)
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_05hfc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_7pe23")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_an6ph")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.499999, 1.19209e-06)
+scale = Vector2(2.95, 4.8)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

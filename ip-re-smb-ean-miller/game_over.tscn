@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfh5b0c0u3mc3"]
+
+[ext_resource type="Script" path="res://game_over.gd" id="1_q3fk3"]
+
+[node name="GameOver" type="Node"]
+script = ExtResource("1_q3fk3")
+
+[node name="RetryButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -28.5
+offset_top = -31.0
+offset_right = 28.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "Retry?"
+
+[node name="YouFailed" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -519.0
+offset_right = 519.0
+offset_bottom = 35.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 22
+text = "You failed to gather enough DNA to replicate even the incomplete AshenFang form permanently!"
+
+[node name="Plot" type="Label" parent="."]
+offset_left = 47.0
+offset_top = 133.0
+offset_right = 1083.0
+offset_bottom = 164.0
+theme_override_font_sizes/font_size = 22
+text = "Without the DNA, you'll never find that stray AshenFang now! Way to lose out on a powerful form!"
+
+[node name="Plot2" type="Label" parent="."]
+offset_left = 38.0
+offset_top = 248.0
+offset_right = 995.0
+offset_bottom = 279.0
+theme_override_font_sizes/font_size = 22
+text = "Luckily for you, the AshenFang still seems to have more DNA scattered about from wandering around."
+
+[node name="Plot3" type="Label" parent="."]
+offset_left = 17.0
+offset_top = 364.0
+offset_right = 1128.0
+offset_bottom = 395.0
+theme_override_font_sizes/font_size = 21
+text = "You still have a chance to gather more DNA before the AshenFang leaves for good. How about you try again?"
+
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]

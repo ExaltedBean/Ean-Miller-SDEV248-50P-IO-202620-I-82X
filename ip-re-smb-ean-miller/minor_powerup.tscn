@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b66p037v0fv75"]
+
+[ext_resource type="Texture2D" uid="uid://cudwahl4syx6q" path="res://Smouldering DNA.png" id="1_bof7k"]
+[ext_resource type="Script" path="res://minor_powerup.gd" id="1_dwjc8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3jcb"]
+size = Vector2(63, 61)
+
+[node name="MinorPowerup" type="Area2D"]
+script = ExtResource("1_dwjc8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bof7k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -1.5)
+shape = SubResource("RectangleShape2D_b3jcb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
